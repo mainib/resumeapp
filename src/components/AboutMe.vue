@@ -19,19 +19,19 @@
           <div class='card-social-links'>
             <ul class='social-links' >
               <li class="social_link">
-                 <a rel="noopener noreferrer" target="_blank" :href=profile_social_links[0]>
-                    <i :class=profile_social_links[0].className class="bottom_links"> </i>
+                 <a rel="noopener noreferrer" target="_blank" :href="profile_social_links[0].link">
+                    <i :class=profile_social_links[0].className class="bottom_links"></i>
                     <p class="bottom_links_p">{{profile_social_links[0].name}}</p>
                   </a> 
               </li>
-              <li class="social_link">
-                 <a rel="noopener noreferrer" target="_blank" :href=profile_social_links[0]>
+               <li class="social_link">
+                 <a rel="noopener noreferrer" target="_blank" :href="profile_social_links[1].link">
                     <i :class=profile_social_links[1].className class="bottom_links"></i>
                     <p class="bottom_links_p">{{profile_social_links[1].name}}</p>
                   </a> 
               </li>
               <li class="social_link">
-                 <a rel="noopener noreferrer" target="_blank" :href=profile_social_links[0]>
+                 <a rel="noopener noreferrer" target="_blank" :href="profile_social_links[2].link">
                     <i :class=profile_social_links[2].className class="bottom_links"></i>
                     <p class="bottom_links_p">{{profile_social_links[2].name}}</p>
                   </a> 
@@ -43,6 +43,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'aboutMe',
   data() {
@@ -50,7 +51,7 @@ export default {
       little_about_me: [
       ],
       profile_social_links:[
-        { name: 'Resume', className: 'fas fa-file-code', link: '../assets/Biniam_Hagos_Resume.pdf' },
+        { name: 'Resume', className: 'fas fa-file-code', link:'resume' },
         { name: 'LinkedIn', className: 'fab fa-linkedin', link: 'https://www.linkedin.com/in/biniamhagos/' },
          { name: 'GitHub', className: 'fab fa-github', link: 'https://github.com/mainib' }
       ]
