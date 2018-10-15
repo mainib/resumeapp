@@ -40,26 +40,26 @@
       :class="{'animated slideInUp': about_me_active}">
     </AboutMe>
 
-    <Projects  
+    <ProjectView  
       class= 'content' 
-      v-bind:project="{ name: 'homecooked', links: 'somewhere'}" 
       v-if="homecooked_active" 
-      :class="{'animated slideInUp': homecooked_active}" > 
-    </Projects>
+      v-bind:project= projects[2]
+      :class="{'animated slideInUp': homecooked_active}"> 
+    </ProjectView>
 
-    <Projects  
+    <ProjectView  
       class= 'content' 
-      v-bind:project="{ name: 'habeshawe', links: 'somewhere'}" 
       v-if="habeshawe_active" 
-      :class="{'animated slideInUp': habeshawe_active}" >
-    </Projects>
+      v-bind:project= projects[1]
+      :class="{'animated slideInUp': habeshawe_active}">
+    </ProjectView>
 
-    <Projects  
+    <ProjectView  
       class= 'content' 
-      v-bind:project="{ name: 'zanttana', links: 'somewhere'}" 
       v-if="zanttana_active" 
+      v-bind:project= projects[0] 
       :class="{'animated slideInUp': zanttana_active}">
-    </Projects>
+    </ProjectView>
     
 
   </div>
@@ -67,12 +67,15 @@
 
 <script>
 import AboutMe from './components/AboutMe.vue'
-import Projects from './components/Projects.vue'
+import zanttana_img from './assets/zanttana.jpg'
+import homecooked_img from './assets/homecooked.jpg'
+import habeshawe_img from './assets/habeshawe.png'
+import ProjectView from './components/Project.vue'
 export default {
   name: 'app',
   components: {
     AboutMe,
-    Projects
+    ProjectView
   },
   data( ){
     return{
@@ -80,12 +83,41 @@ export default {
       zanttana_active: false,
       homecooked_active: false,
       habeshawe_active: false,
+      projects: [
+        {
+          name: 'zanttana', 
+          description: 'a complete travel management app where users can create trips/adventures, invite friends, assign, track events.', 
+          github_link: 'http://zanttana.herokuapp.com',
+          text:[
+                'Used React, Redux, AntD, Google maps api to create the responsive web version',
+                'Django_Rest_Framework, PostgresQL for the backend and zanttana.herokuapp.com',   
+                'Recreating the  mobile version for both IOS and Android  with flutter' 
+                ],
+          image:zanttana_img
+        },
+        {
+          name: 'habeshawe', 
+          description: 'a complete travel management app where users can create trips/adventures, invite friends, assign, track events.', 
+          github_link: 'https://github.com/mainib/habeshawecoffee',
+          text:[],
+          image:habeshawe_img
+        },
+        {
+          name: 'homecooked', 
+          description: 'A Peer to Peer network for people to order delicious Home Cooked meals and for Home Cooks to find customers. ', 
+          github_link:'github.com/int-JP/HomeCooked',
+          text:[
+            'Collaborated in a team of 3 to create an MVP in 5 days.',
+            'Used python, Django_Rest_Framework, PostgresQL for the backend and Jquery, Django for the front end.' 
+          ],
+          image:homecooked_img
+        }
+      ]
   }
   },
   methods:{
     //find a better efficicent method
     changeScene(cardName){
-      console.log(cardName);
      if(cardName === 'homecooked_active'){
        this.homecooked_active = true;
        this.zanttana_active = false;
@@ -237,4 +269,6 @@ i, i+p  {
     width: 80%;
   }
 }
+
+
 </style>

@@ -47,7 +47,6 @@ export default {
   name: 'aboutMe',
   data() {
     return {
-      their_name: this.$route.params.name,
       little_about_me: [
       ],
       profile_social_links:[
