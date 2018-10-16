@@ -51,7 +51,7 @@ export default {
       little_about_me: [
       ],
       profile_social_links:[
-        { name: 'Resume', className: 'fas fa-file-code', link:'resume' },
+        { name: 'Resume', className: 'fas fa-file-code', link:'https://github.com/mainib/resumeapp/blob/master/src/assets/Biniam_Hagos_Resume.pdf' },
         { name: 'LinkedIn', className: 'fab fa-linkedin', link: 'https://www.linkedin.com/in/biniamhagos/' },
          { name: 'GitHub', className: 'fab fa-github', link: 'https://github.com/mainib' }
       ]

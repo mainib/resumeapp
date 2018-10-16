@@ -25,13 +25,6 @@
             </p>
           </div>
              
-          <div :class="{active: zanttana_active}"  @click="changeScene('zanttna_active')" class="nav_btns nav_btn">
-            <p>
-              <strong style="font-weight: 650;">Project</strong>
-                <br/>
-                <small style="float: center; !important">zanttana</small>    
-            </p>
-          </div>
     </div>
     
     <AboutMe 
@@ -43,31 +36,22 @@
     <ProjectView  
       class= 'content' 
       v-if="homecooked_active" 
-      v-bind:project= projects[2]
+      v-bind:project= projects[1]
       :class="{'animated slideInUp': homecooked_active}"> 
     </ProjectView>
 
     <ProjectView  
       class= 'content' 
       v-if="habeshawe_active" 
-      v-bind:project= projects[1]
+      v-bind:project= projects[0]
       :class="{'animated slideInUp': habeshawe_active}">
-    </ProjectView>
-
-    <ProjectView  
-      class= 'content' 
-      v-if="zanttana_active" 
-      v-bind:project= projects[0] 
-      :class="{'animated slideInUp': zanttana_active}">
-    </ProjectView>
-    
+    </ProjectView>    
 
   </div>
 </template>
 
 <script>
 import AboutMe from './components/AboutMe.vue'
-import zanttana_img from './assets/zanttana.jpg'
 import homecooked_img from './assets/homecooked.jpg'
 import habeshawe_img from './assets/habeshawe.png'
 import ProjectView from './components/Project.vue'
@@ -80,21 +64,9 @@ export default {
   data( ){
     return{
       about_me_active: true,
-      zanttana_active: false,
       homecooked_active: false,
       habeshawe_active: false,
       projects: [
-        {
-          name: 'zanttana', 
-          description: 'a complete travel management app where users can create trips/adventures, invite friends, assign, track events.', 
-          github_link: 'http://zanttana.herokuapp.com',
-          text:[
-                'Used React, Redux, AntD, Google maps api to create the responsive web version',
-                'Django_Rest_Framework, PostgresQL for the backend and zanttana.herokuapp.com',   
-                'Recreating the  mobile version for both IOS and Android  with flutter' 
-                ],
-          image:zanttana_img
-        },
         {
           name: 'habeshawe', 
           description: 'a complete travel management app where users can create trips/adventures, invite friends, assign, track events.', 
@@ -120,26 +92,17 @@ export default {
     changeScene(cardName){
      if(cardName === 'homecooked_active'){
        this.homecooked_active = true;
-       this.zanttana_active = false;
        this.habeshawe_active = false;
        this.about_me_active = false;
        }
 
       if (cardName === 'habeshawe_active'){
        this.homecooked_active = false;
-       this.zanttana_active = false;
        this.habeshawe_active = true;
-       this.about_me_active = false;
-      }
-      if (cardName === 'zanttna_active'){
-       this.homecooked_active = false;
-       this.zanttana_active = true;
-       this.habeshawe_active = false;
        this.about_me_active = false;
       }
       if (cardName === 'about_me_active'){
        this.homecooked_active = false;
-       this.zanttana_active = false;
        this.habeshawe_active = false;
        this.about_me_active = true;
       }
