@@ -11,16 +11,15 @@
                 <v-flex class="text_info">
                   <h3 class="headline mb-0">Hello, I am Biniam <br /><small style="font-weight: 100">[Bēe-nee-yuh-m]</small></h3>
                   
-                    <v-list two-line>
+                    <v-list one-line>
                       <template class="text_details" v-for="(data, index) in textArray">
                         <v-list-tile
                           :key="index"
-                          avatar
                           ripple
                         >
 
                         <v-list-tile-content>
-                            <v-list-tile-sub-title class="text--primary">{{ data }}</v-list-tile-sub-title>
+                            <v-list-tile-sub-title class="text--primary text-wrap body-2">{{ data }}</v-list-tile-sub-title>
                         </v-list-tile-content>
                         </v-list-tile>
                       </template>
