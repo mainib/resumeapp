@@ -3,6 +3,10 @@
   *{
     box-sizing: border-box;
   }
+  html,body{
+    height: 100%;
+  }
+
   ul{
     list-style-type: none;
   }
@@ -12,6 +16,7 @@
   .layout_container{
     /* border: 4px solid turquoise; */
     display: flex;
+    height: 100%;
   }
   .navbar{
     display: flex;
@@ -33,16 +38,18 @@
     }
     .layout_container {
         flex-direction: column;
+        height: 100%;
         /* background-color: purple; */
     }
     .navbar{
       flex-direction: row;
       width: 100%;
-      height: 10%;
+      height: 5%;
+      padding-bottom: 4em; 
     }
     .content{
       width: 100%;
-      height: 90%;
+      height: 100%;
     }
     .what_is_this{
       display: none;

@@ -2,53 +2,42 @@
 <template>
  <v-card class="about_me">
 
-        <div
-          class='my_img'
+        <v-img
+          :lazy-src="`../assets/ane.jpg'`"
+          aspect-ratio="16/9"
+           class='my_img'
           alt='this_is_me' 
-        >
-        </div>
-        <div class='info_about_me' style="border: solid 2px red;">
+        />
+        <div class='info_about_me'>
                 <v-flex class="text_info">
-                  <h3 class="headline mb-0">Hello, I am Biniam <br /><small style="font-weight: 100">[Bēe-nee-yuh-m]</small></h3>
-                  
-                    <v-list one-line>
-                      <template class="text_details" v-for="(data, index) in textArray">
-                        <v-list-tile
-                          :key="index"
-                          ripple
-                        >
-
-                        <v-list-tile-content>
-                            <v-list-tile-sub-title class="text--primary text-wrap body-2">{{ data }}</v-list-tile-sub-title>
-                        </v-list-tile-content>
-                        </v-list-tile>
-                      </template>
-                      
-                    </v-list>
+                  <h3 class="headline mb-0" style="text-align: center">Hello, I am Biniam <br /><small style="font-weight: 100">[Bēe-nee-yuh-m]</small></h3>
+                      <div class="text_details" v-for="(data, index) in textArray" :key="index">
+                        <p class="font-weight-light">{{ data }}</p>
+                      </div>
                 </v-flex>
-
-                <v-flex class='card-social-links'>
-                  <ul class='social-links' >
-                    <li class="social_link">
-                      <a rel="noopener noreferrer" target="_blank" :href="profile_social_links[0].link">
-                          <i :class=profile_social_links[0].className class="bottom_links"></i>
-                          <p class="bottom_links_p">{{profile_social_links[0].name}}</p>
-                        </a> 
-                    </li>
-                    <li class="social_link">
-                      <a rel="noopener noreferrer" target="_blank" :href="profile_social_links[1].link">
-                          <i :class=profile_social_links[1].className class="bottom_links"></i>
-                          <p class="bottom_links_p">{{profile_social_links[1].name}}</p>
-                        </a> 
-                    </li>
-                    <li class="social_link">
-                      <a rel="noopener noreferrer" target="_blank" :href="profile_social_links[2].link">
-                          <i :class=profile_social_links[2].className class="bottom_links"></i>
-                          <p class="bottom_links_p">{{profile_social_links[2].name}}</p>
-                        </a> 
-                    </li>
-                </ul>
-                </v-flex>
+        
+              <v-flex  class='card-social-links'>
+                      <ul class='social-links' >
+                        <li class="social_link">
+                          <a rel="noopener noreferrer" target="_blank" :href="profile_social_links[0].link">
+                              <i :class=profile_social_links[0].className class="bottom_links"></i>
+                              <p class="bottom_links_p">{{profile_social_links[0].name}}</p>
+                            </a> 
+                        </li>
+                        <li class="social_link">
+                          <a rel="noopener noreferrer" target="_blank" :href="profile_social_links[1].link">
+                              <i :class=profile_social_links[1].className class="bottom_links"></i>
+                              <p class="bottom_links_p">{{profile_social_links[1].name}}</p>
+                            </a> 
+                        </li>
+                        <li class="social_link">
+                          <a rel="noopener noreferrer" target="_blank" :href="profile_social_links[2].link">
+                              <i :class=profile_social_links[2].className class="bottom_links"></i>
+                              <p class="bottom_links_p">{{profile_social_links[2].name}}</p>
+                            </a> 
+                        </li>
+                    </ul>
+                    </v-flex>
         </div>
     </v-card>
 </template>
@@ -113,6 +102,7 @@ export default {
 .about_me{
   display: flex;
   flex-direction: row;
+  height: 100%;
 }
 .my_img{
   width: 50%;
@@ -127,25 +117,43 @@ export default {
   width: 50%;
   padding: 2%;
 }
-
+.social-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    font-size: 1.5em;
+  }
 @media only screen and (max-width: 600px) {  
+
   .about_me{
     flex-direction: column;
+    justify-content: space-between;
     height: 100%;
   }
   .my_img{
     width: 100%;
-    height: 25%;
+    height: 34.5%;
     background-image: url('../assets/ane.jpg');
     background-position: center top;
     background-size: 75% auto;
   }
   .info_about_me{
-    max-height: 75%;
+    height:65%;
     width: 100%;
-    padding: 2%;
     display: flex;
     flex-direction: column;
+  }
+  .social-links{
+    flex-direction: row;
+     font-size: 1em;
+  }
+  .card-social-links{
+    height: 8%;
+  }
+  .text_info{
+    overflow: scroll;
+    height: 80%;
   }
 }
 </style>
